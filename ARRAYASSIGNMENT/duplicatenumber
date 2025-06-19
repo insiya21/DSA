@@ -1,0 +1,35 @@
+class Solution {
+public:
+int sortingmethod(vector<int>&nums){
+    sort(nums.begin(),nums.end());
+    for(int i=0;i<nums.size()-1;i++){
+        if(nums[i]==nums[i+1]){
+            return nums[i];
+        }
+    }
+    return -1;
+}
+int visitingmethod(vector<int>&nums){
+    int ans=-1;
+    for(int i=0;i<nums.size();i++){
+        int index=abs(nums[i]);
+        if(nums[index]<0){
+            ans=index;
+            break;
+        }
+        nums[index]*=-1;
+    }
+    return ans;
+}
+int positioningmethod(vector<int>&nums){
+    while(nums[0]!=nums[nums[0]]){
+        swap(nums[0],nums[nums[0]]);
+    }
+    return nums[0];
+}
+    int findDuplicate(vector<int>& nums) {
+        // return sortingmethod(nums);
+        // return visitingmethod(nums);
+        return positioningmethod(nums);
+    }
+};
