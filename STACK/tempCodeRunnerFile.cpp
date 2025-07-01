@@ -1,0 +1,1 @@
+  prevSmallerElement(arr,n,ans);
